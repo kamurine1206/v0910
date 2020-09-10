@@ -12,11 +12,12 @@ namespace v0910
 {
     public partial class Form1 : Form
     {
+
         static Random rand = new Random();
 
         int[] vx = new int[50];
         int[] vy = new int[50];
-        Label[] labels = new Label[100];
+        Label[] labels = new Label[50];
 
 
         public Form1()
@@ -36,6 +37,39 @@ namespace v0910
                 Controls.Add(labels[i]);
             }
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                    labels[i].Left += vx[i];
+                    labels[i].Top += vy[i];
+           
+                if (labels[i].Left < 0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                    labels[i].Text = "☆";
+
+                }
+                if (labels[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                    labels[i].Text = "☆";
+
+                }
+                if (labels[i].Right >= ClientSize.Width)
+                {
+                    vx[i] = -Math.Abs(vx[i]);
+                    labels[i].Text = "☆";
+
+                }
+                if (labels[i].Bottom >= ClientSize.Height)
+                {
+                    vy[i] = -Math.Abs(vy[i]);
+                    labels[i].Text = "☆";
+                }
+            }
         }
     }
 }
