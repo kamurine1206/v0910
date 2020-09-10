@@ -12,8 +12,12 @@ namespace v0910
 {
     public partial class Form1 : Form
     {
+        static Random rand = new Random();
+
         int[] vx = new int[50];
         int[] vy = new int[50];
+        Label[] labels = new Label[100];
+
 
         public Form1()
         {
@@ -27,6 +31,9 @@ namespace v0910
                 labels[i] = new Label();
                 labels[i].AutoSize = true;
                 labels[i].Text = "☆";
+                labels[i].Left = rand.Next(ClientSize.Width - labels[i].Width);
+                labels[i].Top = rand.Next(ClientSize.Height - labels[i].Height);
+                Controls.Add(labels[i]);
             }
 
         }
