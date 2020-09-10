@@ -71,5 +71,21 @@ namespace v0910
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                if(i==2)
+                {
+                    continue;
+                }
+            if(i==5)
+            {
+                break;
+            }
+            MessageBox.Show("" + i);
+            }
+        }
     }
 }
