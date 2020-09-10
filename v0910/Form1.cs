@@ -15,16 +15,17 @@ namespace v0910
 
         static Random rand = new Random();
 
-        int[] vx = new int[50];
-        int[] vy = new int[50];
-        Label[] labels = new Label[50];
+        const int chrMax = 100;
+        int[] vx = new int[chrMax];
+        int[] vy = new int[chrMax];
+        Label[] labels = new Label[100];
 
 
         public Form1()
         {
             InitializeComponent();
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < chrMax; i++)
             {
                 vx[i] = rand.Next(-20, 21);
                 vy[i] = rand.Next(-20, 21);
